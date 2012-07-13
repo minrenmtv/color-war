@@ -1,4 +1,4 @@
-simple game build in plain javascript.
+simple game build in plain javascript.   minren.info/color.html
 
 start from top left, click on the button to remove one of the colors from the board. only color connected to already removed color will be removed.
 
