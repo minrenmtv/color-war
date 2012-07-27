@@ -22,12 +22,13 @@
 	var doneBoxes = [];
 
 
-	var pallet = ['red', 'yellow', 'green', 'purple'];
+	var pallet = ['070F1F', '394969', '74ADC4', 'FF5B16', '9C200A'];
 	var dimension = 20;
 	var boxWidth = 20;
 	var canvasSize = dimension * boxWidth + 100;
 	var canvas, ctx;
 	var steps = 0;
+	var controllerName = "control";
 
 	function init() {
 		canvas = document.getElementById("color");  
@@ -50,20 +51,23 @@
 			}
 		}
 		document.getElementById('steps').innerHTML = steps;
-
-		eventBind();
+		addButton();
 	}
-	function eventBind() {
-		var red = document.getElementById('red-button');
-		var yellow = document.getElementById('yellow-button');
-		var green = document.getElementById('green-button');
-		var purple = document.getElementById('purple-button');
 
-		red.addEventListener("click", function(){convertboxes('red')}, false);
-		yellow.addEventListener("click", function(){convertboxes('yellow')}, false);
-		green.addEventListener("click", function(){convertboxes('green')}, false);
-		purple.addEventListener("click", function(){convertboxes('purple')}, false);
-
+	/**
+	 *	Adding game buttons according to pallet colors.
+	 */
+	function addButton() {
+		var container = document.getElementById("control");
+		for (var i = 0, len = pallet.length; i < len; i++) {
+			var button = document.createElement('button');
+			button.style.backgroundColor = pallet[i];
+			(function(color){
+				button.addEventListener('click', function(){convertboxes(color)}, false);	
+			})(pallet[i]);
+			
+			container.appendChild(button);
+		}
 	}
 
 	function draw() {
@@ -94,7 +98,7 @@
 	}
 
 	function getColor() {
-		return pallet[Math.floor(Math.random()*4)];
+		return pallet[Math.floor(Math.random()*pallet.length)];
 	}
 
 	function to2d(id) {
