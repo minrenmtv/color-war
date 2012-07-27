@@ -1,8 +1,14 @@
-simple game build in plain javascript.   minren.info/color.html
+Color War: a simple game written in plain javascript
+----------------------------------------------------
 
-start from top left, click on the button to remove one of the colors from the board. only color connected to already removed color will be removed.
+Start from top left corner, try to remove all the color areas from the board in least steps. Each turn, connected chosen color will be removed (become grey).
 
-keep choosing color until all color is removed, lease steps win.
 
-todo:
-* game should start off with top left color be grey.
+ToDos:
+------
+
+*Adding theme options.
+
+*Adding board size options.
+
+*Give the most effecient play at the beginning.
